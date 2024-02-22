@@ -1,0 +1,42 @@
+image: atlassian/default-image:4
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Upload source keys to Localazy
+          condition:
+            changesets:
+              includePaths:
+                - 'locales/en.json'
+          script:
+            - npx --yes @localazy/cli upload -w $LOCALAZY_WRITE_KEY -r $LOCALAZY_READ_KEY
+
+      - step:
+          name: Download translations from Localazy and commit changes
+          script:
+            - npx --yes @localazy/cli download -r $LOCALAZY_READ_KEY
+            - git add .
+            - git commit -m "[skip ci] New translations from Localazy" || true
+            - git push
+
+      - step:
+          name: 'Build app'
+          script:
+            - echo "Building app..."
+
+      - step:
+          name: 'Deploy to development server'
+          script:
+            - echo "Deploying to development..."
+
+    main:
+      - step:
+          name: 'Build app'
+          script:
+            - echo "Building app..."
+
+      - step:
+          name: 'Deploy to production server'
+          script:
+            - echo "Deploying to production..."

@@ -1,0 +1,12 @@
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+  tunel:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --url localhost:3000
+    network_mode: host

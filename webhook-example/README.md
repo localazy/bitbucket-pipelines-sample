@@ -2,8 +2,8 @@
 
 This is an example of how to connect a Localazy webhook with the Bitbucket API and trigger Bitbucket Pipelines.
 
-The demonstration server contains an endpoint that will serve as an intermediary between the Localazy webhook and the Bitbucket API. The Localazy webhook will call the endpoint,
-which will connect to the Bitbucket API and trigger the pipeline.
+The demonstration server contains an [endpoint](index.js) that will serve as an intermediary between the Localazy webhook and the Bitbucket API. The Localazy webhook will call the
+endpoint, which will connect to the Bitbucket API and trigger the pipeline.
 
 ## Environmental variables
 

@@ -20,4 +20,4 @@ Directory with sample localization files.
 
 ###### [`webhook-example/`](webhook-example/README.md)
 
-Directory with example endpoint which serves as intermediate between Localazy webhook and Bitbucket Pipelines.
+Directory contains [example endpoint](webhook-example/index.js) which serves as intermediate between Localazy webhook and Bitbucket Pipelines.

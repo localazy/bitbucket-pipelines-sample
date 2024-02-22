@@ -24,7 +24,7 @@ const localazy = {
 // create a new server instance
 const server = new HyperExpress.Server();
 
-// handle to post request
+// handle post request
 server.post('/', async (request, response) => {
   console.log('Processing incoming request');
 
